@@ -188,13 +188,11 @@ func main() {
 		syr.MostrarDetalles()
 	}
 
-	// 2. Modificar con setter y verificar con getter
 	fmt.Println("Actualizacion")
 	fmt.Printf("Dosis previa: %.2f mg\n", inventarioTabletas[0].GetDosePerTablet())
 	inventarioTabletas[0].SetDosePerTablet(650.0)
 	fmt.Printf("Dosis actualizada: %.2f mg\n\n", inventarioTabletas[0].GetDosePerTablet())
 
-	// 3. Mostrar cálculo de fecha de caducidad
 	fmt.Println("Fecha de Caduciadad")
 	fmt.Printf("Tableta '%s' caduca el: %s\n",
 		inventarioTabletas[0].GetName(),
