@@ -51,15 +51,13 @@ func (m *Medicine) SetManufacturer(nuevaManufacturer string) {
 		fmt.Println("Error: El fabricante no debe estar vacío.")
 	}
 }
-
 func (m *Medicine) SetManufactureDate(nuevaFecha time.Time) {
-	if !nuevaFecha.IsZero() {
+	if nuevaFecha.Year() > 2000 {
 		m.manufactureDate = nuevaFecha
 	} else {
-		fmt.Println("Error: La fecha de fabricación no es válida.")
+		fmt.Println("La fecha de fabricación no es válida.")
 	}
 }
-
 func (m *Medicine) SetShelfLife(nuevaShelfLife int) {
 	if nuevaShelfLife > 0 {
 		m.shelfLife = nuevaShelfLife
