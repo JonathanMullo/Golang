@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 	"time"
@@ -113,7 +112,7 @@ func (t Tablet) MostrarDetalles() {
 	if t.isPrescription {
 		receta = "Sí"
 	}
-	fmt.Println("--- DETALLE TABLETA ---")
+	fmt.Println("Detalles de la Tableta")
 	fmt.Printf("Nombre: %s\n", t.GetName())
 	fmt.Printf("Fabricante: %s\n", t.GetManufacturer())
 	fmt.Printf("Fecha Fabricación: %s\n", t.GetManufactureDate().Format("2006-01-02"))
@@ -174,10 +173,10 @@ func main() {
 	fecha2 := time.Date(2024, time.March, 10, 0, 0, 0, 0, time.UTC)
 
 	inventarioTabletas := []Tablet{
-		NuevaTablet("Paracetamol", "Genfar", fecha1, 24, 500.0, false),
+		NuevaTablet("Paracetamol", "FarmaceuticaNorte", fecha1, 24, 500.0, false),
 	}
 	inventarioJarabes := []Syrup{
-		NuevoSyrup("Ambroxol", "MK", fecha2, 12, 120.0, "Frambuesa"),
+		NuevoSyrup("Vitamica C", "FarmaceuticaSur", fecha2, 12, 120.0, "Naranja"),
 	}
 
 	fmt.Println("Inventario")
@@ -191,20 +190,13 @@ func main() {
 	fmt.Println("Actualizacion")
 	fmt.Printf("Dosis previa: %.2f mg\n", inventarioTabletas[0].GetDosePerTablet())
 	inventarioTabletas[0].SetDosePerTablet(650.0)
-	fmt.Printf("Dosis actualizada: %.2f mg\n\n", inventarioTabletas[0].GetDosePerTablet())
+	fmt.Printf("Dosis actualizada: %.2f mg\n", inventarioTabletas[0].GetDosePerTablet())
 
 	fmt.Println("Fecha de Caduciadad")
 	fmt.Printf("Tableta '%s' caduca el: %s\n",
 		inventarioTabletas[0].GetName(),
-		inventarioTabletas[0].CalcularCaducidad().Format("2006-01-02"))
-
+		inventarioTabletas[0].CalcularCaducidad().Format("02-01-2006"))
 	fmt.Printf("Jarabe '%s' caduca el: %s\n",
 		inventarioJarabes[0].GetName(),
-		inventarioJarabes[0].CalcularCaducidad().Format("2006-01-02"))
+		inventarioJarabes[0].CalcularCaducidad().Format("02-01-2006"))
 }
-
-
-
-
-
-		
